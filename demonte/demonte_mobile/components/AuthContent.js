@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         marginTop:100,
         padding:15,
         borderRadius:20,
-        backgroundColor:'#C4C4C4',
+        backgroundColor:'#E7AF00',
         elevation:4,
         shadowColor:'black',
         shadowOffset:{width:1,height:2},
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     },
     contentTitleContainer:{
         borderRadius:7,
-        backgroundColor:'#000230',
+        backgroundColor:'#6A6A6A',
         padding:10,
     },
     contentTitleText:{
