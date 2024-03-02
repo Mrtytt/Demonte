@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         marginVertical:8,
     },
     label:{
-        color:'white',
+        color:'#6A6A6A',
         marginBottom:5,
     },
     labelInvalid:{

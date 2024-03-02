@@ -29,22 +29,26 @@ export default function MainScreen({navigation}) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.contentContainer}>
-        <ImageBackground
+        <Image
           source={require('../assets/Ekran görüntüsü 2024-03-02 174528.png')}
           style={styles.contentImage}
-        >
-          <Pressable
+        />
+        <View style={styles.titleContainer}>
+          <Image
+            source={require('../assets/WhatsApp Image 2024-02-24 at 16.13.21.jpeg')}
+            style={styles.titleImage}
+          />
+        </View>
+        <Pressable
           style={({ pressed }) => pressed && styles.pressed}
           onPress={() => {
             navigation.navigate('LoginScreen');
-           }}>
+          }}>
           <View style={styles.contentLoginButtonContainer}>
             <Text style={styles.contentLoginButtonText}>Giriş</Text>
             <AntDesign name="arrowright" size={24} color="white" />  
           </View>
-          </Pressable>
-        </ImageBackground>
-        
+        </Pressable>
         
       </View>
     </View>
@@ -57,14 +61,16 @@ const styles = StyleSheet.create({
       backgroundColor:'white',
     },
     contentContainer:{
-      flex:1,
+      width:'100%',
+      height:'100%',
     },
     contentImageContainer:{
       justifyContent:'center',
     },
     contentImage:{
       width:'100%',
-      height:'101%',
+      height:'100%',
+      position:'absolute'
     },
     contentLoginButtonContainer:{
       flexDirection:'row',
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
       borderRadius:15,
       borderWidth:3,
       borderColor:'white',
-      marginTop:700,
+      marginTop:550,
       marginLeft:15,
       marginRight:15,
       padding:5,
@@ -82,4 +88,17 @@ const styles = StyleSheet.create({
       color:'white',
       marginRight:5,
     },
+    titleContainer:{
+      height:'15%',
+      width:'90%',
+      marginTop:75,
+      borderRadius:10,
+      marginLeft:20,
+    },
+    titleImage:{
+      borderRadius:10,
+      height:'100%',
+      width:'100%',
+      opacity:0.4,
+    }
 })

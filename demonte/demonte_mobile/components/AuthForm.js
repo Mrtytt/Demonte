@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View,TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Pressable} from 'react-native'
 import React,{useState} from 'react'
 import Input from './Input'
 import Button from './Button'
-import { AntDesign } from '@expo/vector-icons';
 
 
 export default function AuthForm({isLogin,onsubmit,credentialsInvalid}) {
@@ -36,22 +35,31 @@ export default function AuthForm({isLogin,onsubmit,credentialsInvalid}) {
   return (
     <View>
         <Input 
-        label="Email" 
-        keyboardType="email-address"
-        onUpdateValue={updateInput.bind(this,'email')}
-        value={enteredEmail}
-        isInvalid={emailIsInvalid}/>
+          label="E-Posta Adresi" 
+          keyboardType="email-address"
+          onUpdateValue={updateInput.bind(this,'email')}
+          value={enteredEmail}
+          isInvalid={emailIsInvalid}/>
         <Input 
-        label="Şifre" 
-        secure
-        onUpdateValue={updateInput.bind(this,'password')}
-        value={enteredPassword}
-        isInvalid={passwordIsInvalid}/>
-        <View style={styles.buttons}>
-          <Button onPress={submitHandler}>
-            {'Giriş Yap'}
-          </Button>
+          label="Şifre" 
+          secure
+          onUpdateValue={updateInput.bind(this,'password')}
+          value={enteredPassword}
+          isInvalid={passwordIsInvalid}/>
+        <View style={styles.forgotPasswordContainer}>
+          <Text style={styles.forgotPasswordText}>Şifremi Unuttum</Text>
         </View>
+        <Pressable
+          style={({ pressed }) => pressed && styles.pressed}
+          onPress={() => {
+            navigation.navigate('LoginScreen');
+        }}>
+          <View style={styles.buttons}>
+            <Button onPress={submitHandler}>
+              {'Giriş Yap'}
+            </Button>
+          </View>
+        </Pressable>
     </View>
   )
 }
@@ -60,4 +68,15 @@ const styles = StyleSheet.create({
   buttons:{
     marginTop:10,
   },
+  forgotPasswordContainer:{
+    marginTop:15,
+    marginBottom:15,
+    alignItems:'center',
+  },
+  forgotPasswordText:{
+    color:'darkblue',
+  },
+  pressed:{
+    opacity:0.5,
+  }
 })
