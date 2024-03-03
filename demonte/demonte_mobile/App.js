@@ -13,6 +13,7 @@ import HomeScreen from './screens/HomeScreen';
 import OtherServicesScreen from './screens/OtherServicesScreen';
 import ServiceScreen from './screens/ServiceScreen';
 import OtherScreen from './screens/OtherScreen';
+import UserScreen from './screens/UserScreen';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -57,6 +58,11 @@ function DemonteApp(){
         component={DemonteOverview}
         options={{headerShown:false}}
       />
+      <Stack.Screen
+        name='UserScreen'
+        component={UserScreen}
+        options={{headerShown:false}}
+      />
     </Stack.Navigator>
   )
 }
@@ -67,7 +73,7 @@ function DemonteOverview(){
 
       <Tab.Navigator
       screenOptions={{
-        headerShadowVisible: false,
+        headerShown:false,
         tabBarShowLabel:false
       }}
       >

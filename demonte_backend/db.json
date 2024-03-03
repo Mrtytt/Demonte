@@ -1,0 +1,10 @@
+{
+  "messages":[
+    {
+      "id": "1234",
+      "title": "json-server",
+      "content": "typicode",
+      "isRead":false
+    }
+  ]
+}
