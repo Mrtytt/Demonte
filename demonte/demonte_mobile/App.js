@@ -14,11 +14,14 @@ import OtherServicesScreen from './screens/OtherServicesScreen';
 import ServiceScreen from './screens/ServiceScreen';
 import OtherScreen from './screens/OtherScreen';
 import UserScreen from './screens/UserScreen';
+import { Provider } from './context/Context';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import PriceList from './screens/PriceList';
+import OffersScreen from './screens/OffersScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -61,6 +64,16 @@ function DemonteApp(){
       <Stack.Screen
         name='UserScreen'
         component={UserScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='OtherServicesScreen'
+        component={OtherServicesScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='OffersScreen'
+        component={OffersScreen}
         options={{headerShown:false}}
       />
     </Stack.Navigator>
@@ -110,13 +123,14 @@ function DemonteOverview(){
       }}
     />
     <Tab.Screen 
-      name="Other Services" 
-      component={OtherServicesScreen}
+      name="PriceList" 
+      component={PriceList}
       options={{
-        title: 'Ek Hizmetler',
+        title: 'Fiyat Listesi',
         tabBarIcon: ({ color, size }) => (
           <Feather name="list" size={size} color={color} />
         ),
+        headerShown:true
       }}
     />
     <Tab.Screen 
@@ -136,9 +150,11 @@ function DemonteOverview(){
 export default function App() {
   return (
     <AuthContextProvider>
+      <Provider>
         <Navigation>
-      
+        
         </Navigation>
+      </Provider>
     </AuthContextProvider>
   );
 }
