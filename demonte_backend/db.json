@@ -32,5 +32,25 @@
       "serviceContent":"Almanya’dan ve İngiltere’den ithalatlarımız ile Avrupa’nın en önemli markalarına ulaşmanız artık çok kolay!Temsilcisi olduğumuz SCA ve SKYLINE markalarının TÜV onaylı ürünleri eğitimli ekibimizin titiz çalışmaları ile aracınıza montajları tamamlanmaktadır.Pop up açılır tavanlarımız tüm Avrupa da 1 yıl, ülkemizde ise 2 yıl üretici ve firmamızın garantisi altındadır.",
       "imageUrl":"https://demontekaravan-com-media.s3.amazonaws.com/wp-content/uploads/2023/01/07091421/IMG_0305-2048x1536.jpg"
     }
+  ],
+  "models":[
+    {
+      "id":"1",
+      "carName":"VW Tranporter",
+      "carContent":"VW Transporter araçları kamp araçlarına çevirmekteyiz. Her zaman Avrupa standartlarını ve konforunu esas alarak geliştirdiğimiz araçlarımız ile Türkiye pazarına hakim bir marka haline gelerek Avrupaya açıldık.",
+      "imageUrl":"https://demontekaravan-com-media.s3.amazonaws.com/wp-content/uploads/2024/02/28154714/Transporter-Model-2048x1248.png"
+    },
+    {
+      "id":"2",
+      "carName":"Ford Custom",
+      "carContent":"Ford Custom araçları kamp araçlarına çevirmekteyiz. Her zaman Avrupa standartlarını ve konforunu esas alarak geliştirdiğimiz araçlarımız ile Türkiye pazarına hakim bir marka haline gelerek Avrupaya açıldık.",
+      "imageUrl":"https://demontekaravan-com-media.s3.amazonaws.com/wp-content/uploads/2024/02/28154149/9f081ef5-4a83-4c5a-8bef-484a2cf68d4e.png"
+    },
+    {
+      "id":"3",
+      "carName":"Fiat Ducato",
+      "carContent":"Fiat Ducato araçları kamp araçlarına çevirmekteyiz. Her zaman Avrupa standartlarını ve konforunu esas alarak geliştirdiğimiz araçlarımız ile Türkiye pazarına hakim bir marka haline gelerek Avrupaya açıldık.",
+      "imageUrl":"https://demontekaravan-com-media.s3.amazonaws.com/wp-content/uploads/2023/01/06220941/Fiat-Ducato_Calisma-Yuzeyi-1-2048x1152.png"
+    }
   ]
 }

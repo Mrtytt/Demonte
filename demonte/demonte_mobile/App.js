@@ -22,6 +22,12 @@ import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import PriceList from './screens/PriceList';
 import OffersScreen from './screens/OffersScreen';
+import ModelsScreen from './screens/ModelsScreen';
+import MainServiceScreen from './screens/MainServiceScreen';
+import OnlineServiceDate from './screens/OnlineServiceDate';
+import EditServiceScreen from './screens/EditServiceScreen';
+import ServiceHistoryScreen from './screens/ServiceHistoryScreen';
+import ServiceOffersScreen from './screens/ServiceOffersScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -76,6 +82,36 @@ function DemonteApp(){
         component={OffersScreen}
         options={{headerShown:false}}
       />
+      <Stack.Screen
+        name='ModelsScreen'
+        component={ModelsScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='MainServiceScreen'
+        component={MainServiceScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='OnlineServiceDate'
+        component={OnlineServiceDate}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='EditServiceScreen'
+        component={EditServiceScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='ServiceHistoryScreen'
+        component={ServiceHistoryScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='ServiceOffersScreen'
+        component={ServiceOffersScreen}
+        options={{headerShown:false}}
+      />
     </Stack.Navigator>
   )
 }
@@ -120,6 +156,7 @@ function DemonteOverview(){
         tabBarIcon: ({ color, size }) => (
           <FontAwesome5 name="wrench" size={size} color={color} />
         ),
+        headerShown:true
       }}
     />
     <Tab.Screen 
@@ -141,6 +178,7 @@ function DemonteOverview(){
         tabBarIcon: ({ color, size }) => (
           <Entypo name="dots-three-horizontal" size={size} color={color} />
         ),
+        headerShown:true
       }}
     />
     </Tab.Navigator>

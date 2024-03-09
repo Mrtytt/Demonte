@@ -1,19 +1,20 @@
-import { Pressable, StyleSheet, Text, View,FlatList,Image,ScrollView} from 'react-native'
+import { StyleSheet, Text, View,Pressable,FlatList,Image, ScrollView} from 'react-native'
 import React,{useContext,useEffect} from 'react'
-import { Context } from '../context/Context'
 import { AntDesign } from '@expo/vector-icons';
+import { Context } from '../context/Context'
 
-export default function OtherServicesScreen({navigation}) {
-  const {state,getOtherServices} = useContext(Context)
+
+export default function ModelsScreen({navigation}) {
+  const {state,getModels} = useContext(Context)
   
   useEffect(() => {
-    getOtherServices();
+    getModels();
   },[]);
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.mainContainer}>
-      <View style={styles.backButton}>
-            <Pressable
+        <View style={styles.backButton}>
+          <Pressable
               style={({ pressed }) => pressed && styles.pressed}
               onPress={() => {
               navigation.navigate('PriceList');
@@ -22,21 +23,23 @@ export default function OtherServicesScreen({navigation}) {
         </Pressable>
       </View>
       <View style={styles.servicesTitle}>
-        <Text style={styles.servicesTitleText}>Ek Hizmetler</Text>
+        <Text style={styles.servicesTitleText}>Modellerimiz</Text>
       </View>
-      <View style={styles.servicesContainer}>
+      <View style={styles.modelContainer}>
           <FlatList
+            numColumns={2}
+            columnWrapperStyle={{justifyContent: 'space-between'}}
             data={state}
-            keyExtractor={(services) => services.id}
+            keyExtractor={(model) => model.id}
             renderItem={({item}) => {
               return (
                 <Pressable onPress={()=>navigation.navigate('Show',{id:item.id})}>
-                  <View style={styles.serviceContiner}>
+                  <View style={styles.modelContiner}>
                     <Image
-                      style={styles.servicesImage}
+                      style={styles.modelImage}
                       source={{uri:item.imageUrl}}
                     />
-                    <Text style={styles.serviceText}>{item.serviceName}</Text>
+                    <Text style={styles.modelText}>{item.carName}</Text>
                   </View>
                 </Pressable>
               )}}
@@ -53,37 +56,39 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:'white',
   },
-  servicesContainer:{
+  backButton:{
+    marginTop:60,
+    marginLeft:15,
+  },
+  modelContainer:{
     borderRadius:10,
-    marginHorizontal:15,
+    marginHorizontal:5,
     marginVertical:15,
     padding:5,
     backgroundColor:'#E7AF00'
   },
-  servicesImage:{
-    height:160,
-    width:340,
+  modelImage:{
+    height:150,
+    width:165,
+    marginHorizontal:5,
     borderRadius:10,
     marginBottom:10,
-    marginRight:20,
   },
-  serviceContiner:{
-    marginBottom:15,
-    backgroundColor:'#6A6A6A',
+  modelContiner:{
+    marginBottom:10,
+    backgroundColor:'#E4E4E4',
     borderRadius:10,
-    height:210,
+    height:215,
+    width:182,
     padding:5,
+    marginRight:5,
   },
-  serviceText:{
+  modelText:{
     marginLeft:15,
     marginRight:15,
     fontSize:18,
-    color:'white',
+    color:'black',
     textAlign:'center',
-  },
-  backButton:{
-    marginTop:60,
-    marginLeft:15,
   },
   servicesTitle:{
     borderRadius:10,

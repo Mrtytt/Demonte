@@ -55,6 +55,7 @@ export default function HomeScreen({navigation}) {
           <View style={styles.offerTitle}>
             <Text></Text>
             <Pressable
+              style={({pressed}) =>pressed && styles.pressed}
               onPress={()=>navigation.navigate('OffersScreen')}
             >
               <View style={styles.offerTitleSecondPart}>

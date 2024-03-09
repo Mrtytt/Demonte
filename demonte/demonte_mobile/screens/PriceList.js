@@ -11,13 +11,13 @@ export default function PriceList({navigation}) {
         />
       </View>
       <View style={styles.sloganContainer}>
-        <Text style={styles.sloganText}>"Geçmişten Gelen en iyi kamp aracı ile özgürlüğüne bir adım daha yakınsınız"</Text>
+        <Text style={styles.sloganText}>"Geçmişten gelen en iyi kamp aracı ile özgürlüğüne bir adım daha yakınsınız"</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <Pressable
             style={({pressed}) =>pressed && styles.pressed}
             onPress={() => {
-              navigation.navigate('UserScreen');
+              navigation.navigate('ModelsScreen');
             }}
         >
             <View style={styles.buttonContainer}>
