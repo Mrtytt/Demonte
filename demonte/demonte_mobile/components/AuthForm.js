@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   forgotPasswordText:{
-    color:'darkblue',
+    color:'yellow',
   },
   pressed:{
     opacity:0.5,

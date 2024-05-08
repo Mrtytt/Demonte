@@ -1,4 +1,4 @@
-import { Alert, Button, StyleSheet, Text, View,TouchableOpacity,Pressable} from 'react-native'
+import { Alert, Button, StyleSheet, Text, View,TouchableOpacity,Pressable,Image} from 'react-native'
 import React, {useState} from 'react'
 import AuthForm from './AuthForm'
 import { useNavigation } from '@react-navigation/native'
@@ -16,7 +16,7 @@ export default function AuthContent({isLogin,onAuthenticate}) {
     function submitHandler(credentials)
     {
         console.log(credentials)
-        let {confirmEmail,confirmPassword,email,password} = credentials
+        let {email,password} = credentials
         
         
         email=email.trim()
@@ -24,11 +24,8 @@ export default function AuthContent({isLogin,onAuthenticate}) {
 
         const emailIsValid=email.includes('@')
         const passwordIsValid = password.length > 6;
-        const emailsAreEqual = email===confirmEmail
-        const passwordsAreEqual = password===confirmPassword
 
-        if(!emailIsValid || !passwordIsValid || (!isLogin &&(!emailsAreEqual ||
-            !passwordsAreEqual)))
+        if(!emailIsValid || !passwordIsValid || (!isLogin))
             {
                 Alert.alert('Hops!','Lütfen girdiğiniz değerleri kontrol ediniz!');
                 setcredentialsInvalid({
@@ -44,13 +41,17 @@ export default function AuthContent({isLogin,onAuthenticate}) {
     }
     return (
         <View style={styles.mainContainer}>
+            <Image
+                source={require('../assets/WhatsApp Image 2024-03-18 at 18.58.33 (1).jpeg')}
+                style={styles.contentImage}
+            />
             <View style={styles.backButton}>
                 <Pressable
                 style={({ pressed }) => pressed && styles.pressed}
                 onPress={() => {
                 navigation.navigate('WelcomeScreen');
                 }}>
-                    <AntDesign name="back" size={24} color="black" />
+                    <AntDesign name="back" size={24} color="white" />
                 </Pressable>
             </View>
             <View style={styles.contentContainer}>
@@ -96,7 +97,12 @@ const styles = StyleSheet.create({
     },
     contentTitleText:{
         fontSize:24,
-        color:'#6A6A6A',
+        color:'white',
         fontWeight:'bold'
-    }
+    },
+    contentImage:{
+        width:'100%',
+        height:'100%',
+        position:'absolute'
+      },
 })

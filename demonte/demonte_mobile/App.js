@@ -28,6 +28,7 @@ import OnlineServiceDate from './screens/OnlineServiceDate';
 import EditServiceScreen from './screens/EditServiceScreen';
 import ServiceHistoryScreen from './screens/ServiceHistoryScreen';
 import ServiceOffersScreen from './screens/ServiceOffersScreen';
+import ShowScreen from './screens/ShowScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -110,6 +111,11 @@ function DemonteApp(){
       <Stack.Screen
         name='ServiceOffersScreen'
         component={ServiceOffersScreen}
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name='ShowScreen'
+        component={ShowScreen}
         options={{headerShown:false}}
       />
     </Stack.Navigator>

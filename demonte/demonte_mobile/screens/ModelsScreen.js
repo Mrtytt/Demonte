@@ -3,7 +3,6 @@ import React,{useContext,useEffect} from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/Context'
 
-
 export default function ModelsScreen({navigation}) {
   const {state,getModels} = useContext(Context)
   
@@ -33,7 +32,7 @@ export default function ModelsScreen({navigation}) {
             keyExtractor={(model) => model.id}
             renderItem={({item}) => {
               return (
-                <Pressable onPress={()=>navigation.navigate('Show',{id:item.id})}>
+                <Pressable onPress={()=>navigation.navigate('ShowScreen',{id:item.id})}>
                   <View style={styles.modelContiner}>
                     <Image
                       style={styles.modelImage}

@@ -30,7 +30,7 @@ export default function OtherServicesScreen({navigation}) {
             keyExtractor={(services) => services.id}
             renderItem={({item}) => {
               return (
-                <Pressable onPress={()=>navigation.navigate('Show',{id:item.id})}>
+                <Pressable onPress={()=>navigation.navigate('ShowScreen',{id:item.id})}>
                   <View style={styles.serviceContiner}>
                     <Image
                       style={styles.servicesImage}
