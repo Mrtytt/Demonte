@@ -53,14 +53,18 @@ export default function ModelScreen({navigation,route}) {
         </View>
       </View>
       <View style={styles.contentContainer}>
+      <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>{model.Name}</Text>
+        </View>
         <View style={styles.imageContainer}>
             <Image
               style={styles.image}
               source={{uri:model.imageUrl}}
             />
         </View>
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>{model.carName}</Text>
+        
+        <View style={styles.contextContainer}>
+          <Text style={styles.contextText}>{model.Content}</Text>
         </View>
       </View>
     </View>
@@ -102,6 +106,20 @@ const styles = StyleSheet.create({
     backgroundColor:'#000230'
   },
   titleText:{
+    fontSize:16,
+    color:'white',
+  },
+  contextContainer:{
+    marginTop:15,
+    marginLeft:15,
+    marginRight:15,
+    borderWidth:1,
+    borderRadius:10,
+    alignItems:'center',
+    padding:5,
+    backgroundColor:'#000230'
+  },
+  contextText:{
     fontSize:16,
     color:'white',
   }

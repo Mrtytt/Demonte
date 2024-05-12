@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View,Image, Pressable} from 'react-native'
+import { StyleSheet, Text, View,Image, Pressable, ScrollView} from 'react-native'
 import React from 'react'
 
 export default function PriceList({navigation}) {
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.scrollView}>
+        <View style={styles.mainContainer}>
       <View style={styles.titleContainer}>
         <Image
             style={styles.titleImage}
@@ -50,6 +51,8 @@ export default function PriceList({navigation}) {
         </Pressable>
       </View>
     </View>
+    </ScrollView>
+    
   )
 }
 
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
         color:'white',
     },
     buttonsContainer:{
-        height:'65%',
+        height:'85%',
         width:'95%',
         borderRadius:15,
         marginLeft:10,
@@ -118,5 +121,9 @@ const styles = StyleSheet.create({
     buttonText:{
         fontSize:18,
         color:'white',
+    },
+    scrollView:{
+        backgroundColor:'white',
+        height:1000
     }
 })

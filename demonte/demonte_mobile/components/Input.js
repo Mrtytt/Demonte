@@ -19,11 +19,12 @@ export default function Input({label,keyboardType,onUpdateValue,value,secure,isI
 
 const styles = StyleSheet.create({
     inputContainer:{
-        marginVertical:8,
+        marginVertical:5,
     },
     label:{
-        color:'white',
+        color:'black',
         marginBottom:5,
+        fontSize:18,
     },
     labelInvalid:{
       color:'red'

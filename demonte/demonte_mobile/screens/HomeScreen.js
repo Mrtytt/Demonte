@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View,ScrollView,FlatList,Image} from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, View,ScrollView,FlatList,Image} from 'react-native'
 import React,{useContext,useEffect} from 'react'
 
 import { Feather } from '@expo/vector-icons';
@@ -14,7 +14,7 @@ export default function HomeScreen({navigation}) {
           <View style={styles.titleContainer}>
             <Text style={styles.greetingContainerText}>Demonte'ye Hoşgeldiniz</Text>
             <View style={styles.userButtonContainer}>
-              <Pressable
+              <TouchableOpacity
                 style={({pressed}) =>pressed && styles.pressed}
                 onPress={() => {
                   navigation.navigate('UserScreen');
@@ -22,7 +22,7 @@ export default function HomeScreen({navigation}) {
                   <View style={styles.userButtonIconContainer}>
                     <Feather name="user" size={24} color="black" />
                   </View>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -30,7 +30,7 @@ export default function HomeScreen({navigation}) {
           
         </View>
         <View style={styles.bigButtonsContainer}>
-          <Pressable
+          <TouchableOpacity
                 style={({pressed}) =>pressed && styles.pressed}
                 onPress={() => {
                   navigation.navigate('MyCarScreen');
@@ -39,22 +39,22 @@ export default function HomeScreen({navigation}) {
               <FontAwesome5 name="car" size={30} color='white' />
               <Text style={styles.buttonContainerText}>Aracım</Text>
             </View>
-          </Pressable>
-          <Pressable
+          </TouchableOpacity>
+          <TouchableOpacity
             style={({pressed}) =>pressed && styles.pressed}
             onPress={() => {
-              navigation.navigate('MyCarScreen');
+              navigation.navigate('OnlineServiceDate');
             }}>
             <View style={styles.buttonContainer}>
               <FontAwesome name="calendar" size={30} color='white' />
               <Text style={styles.buttonContainerText}>Servis Randevusu</Text>
             </View>
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.offersContainer}>
           <View style={styles.offerTitle}>
             <Text></Text>
-            <Pressable
+            <TouchableOpacity
               style={({pressed}) =>pressed && styles.pressed}
               onPress={()=>navigation.navigate('OffersScreen')}
             >
@@ -64,9 +64,9 @@ export default function HomeScreen({navigation}) {
                   <AntDesign name="right" size={20} color="white" />
                 </View>
               </View>
-            </Pressable>
+            </TouchableOpacity>
           </View>
-            <Pressable 
+            <TouchableOpacity 
               onPress={()=>navigation.navigate('OffersScreen')}
             >
               <View style={styles.titleContiner}>
@@ -77,7 +77,7 @@ export default function HomeScreen({navigation}) {
                   />
                 <Text style={styles.titleText}>1. Kampanya</Text>
               </View>
-            </Pressable>
+            </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

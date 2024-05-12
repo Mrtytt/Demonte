@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View,Pressable,FlatList,Image, ScrollView} from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,FlatList,Image, ScrollView} from 'react-native'
 import React,{useContext,useEffect} from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/Context'
+import "react-native-reanimated"
 
 export default function ModelsScreen({navigation}) {
   const {state,getModels} = useContext(Context)
@@ -13,34 +14,32 @@ export default function ModelsScreen({navigation}) {
     <ScrollView style={styles.scrollView}>
       <View style={styles.mainContainer}>
         <View style={styles.backButton}>
-          <Pressable
+          <TouchableOpacity
               style={({ pressed }) => pressed && styles.pressed}
               onPress={() => {
               navigation.navigate('PriceList');
             }}>
           <AntDesign name="back" size={24} color="black" />
-        </Pressable>
+        </TouchableOpacity>
       </View>
       <View style={styles.servicesTitle}>
         <Text style={styles.servicesTitleText}>Modellerimiz</Text>
       </View>
       <View style={styles.modelContainer}>
           <FlatList
-            numColumns={2}
-            columnWrapperStyle={{justifyContent: 'space-between'}}
             data={state}
             keyExtractor={(model) => model.id}
             renderItem={({item}) => {
               return (
-                <Pressable onPress={()=>navigation.navigate('ShowScreen',{id:item.id})}>
+                <TouchableOpacity onPress={()=>navigation.navigate('ShowScreen',{id:item.id})}>
                   <View style={styles.modelContiner}>
                     <Image
                       style={styles.modelImage}
                       source={{uri:item.imageUrl}}
                     />
-                    <Text style={styles.modelText}>{item.carName}</Text>
+                    <Text style={styles.modelText}>{item.Name}</Text>
                   </View>
-                </Pressable>
+                </TouchableOpacity>
               )}}
             />
         </View>
@@ -60,6 +59,7 @@ const styles = StyleSheet.create({
     marginLeft:15,
   },
   modelContainer:{
+    height:800,
     borderRadius:10,
     marginHorizontal:5,
     marginVertical:15,
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#E7AF00'
   },
   modelImage:{
-    height:150,
-    width:165,
+    height:"90%",
+    width:"100%",
     marginHorizontal:5,
     borderRadius:10,
     marginBottom:10,
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
     marginBottom:10,
     backgroundColor:'#E4E4E4',
     borderRadius:10,
-    height:215,
-    width:182,
+    height:250,
+    width:"100%",
     padding:5,
     marginRight:5,
   },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize:24,
   },
   scrollView:{
-    flex:1,
     backgroundColor:'white',
+    height:1000,    
   }
 })

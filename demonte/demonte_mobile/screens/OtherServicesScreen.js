@@ -24,7 +24,7 @@ export default function OtherServicesScreen({navigation}) {
       <View style={styles.servicesTitle}>
         <Text style={styles.servicesTitleText}>Ek Hizmetler</Text>
       </View>
-      <View style={styles.servicesContainer}>
+      <ScrollView style={styles.servicesContainer}>
           <FlatList
             data={state}
             keyExtractor={(services) => services.id}
@@ -36,12 +36,12 @@ export default function OtherServicesScreen({navigation}) {
                       style={styles.servicesImage}
                       source={{uri:item.imageUrl}}
                     />
-                    <Text style={styles.serviceText}>{item.serviceName}</Text>
+                    <Text style={styles.serviceText}>{item.Name}</Text>
                   </View>
                 </Pressable>
               )}}
             />
-        </View>
+        </ScrollView>
     </View>
     </ScrollView>
     
@@ -100,5 +100,6 @@ const styles = StyleSheet.create({
   scrollView:{
     flex:1,
     backgroundColor:'white',
+    height:1000,
   }
 })

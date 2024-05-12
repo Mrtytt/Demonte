@@ -1,20 +1,13 @@
-import { StyleSheet, Text, View,Pressable, ScrollView,TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View,Pressable, ScrollView} from 'react-native'
 import React,{useContext,useState} from 'react'
 import AuthContextProvider, { AuthContext } from'../store/auth-context'
-import { AntDesign } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Feather } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
-import { Camera, CameraType } from 'expo-camera';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function UserScreen({navigation}) {
   const authContext = useContext(AuthContext)
-  const [type, setType] = useState(CameraType.back);
-  const [permission, requestPermission] = Camera.useCameraPermissions();
-
-  function toggleCameraType() {
-    setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
-  }
 
   return (
     <ScrollView style={styles.scrollView}>
@@ -26,7 +19,7 @@ export default function UserScreen({navigation}) {
                   onPress={() => {
                   navigation.navigate('Demonte');
                 }}>
-              <AntDesign name="back" size={24} color="black" />
+              {<AntDesign name="back" size={24} color="black" />}
             </Pressable>
           </View>
           <View>

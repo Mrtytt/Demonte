@@ -11,20 +11,20 @@ export default function OffersScreen({navigation}) {
   },[]);
   return (
     <View style={styles.mainContaienr}>
-        <View style={styles.backButton}>
-            <Pressable
-              style={({ pressed }) => pressed && styles.pressed}
-              onPress={() => {
-              navigation.navigate('Demonte');
-            }}>
-          <AntDesign name="back" size={24} color="black" />
+      <View style={styles.backButton}>
+        <Pressable
+          style={({ pressed }) => pressed && styles.pressed}
+            onPress={() => {
+            navigation.navigate('Demonte');
+          }}>
+          {<AntDesign name="back" size={24} color="black" />}
         </Pressable>
       </View>
       <View style={styles.titleContainer}>
         <Text style={styles.titleContainerText}>Kampanyalar</Text>
       </View>
       <View style={styles.offerContainer}>
-          <FlatList
+          { <FlatList
             data={state}
             keyExtractor={(offer) => offer.id}
             renderItem={({item}) => {
@@ -39,7 +39,7 @@ export default function OffersScreen({navigation}) {
                   </View>
                 </Pressable>
               )}}
-            />
+            />}
         </View>
     </View>
   )
