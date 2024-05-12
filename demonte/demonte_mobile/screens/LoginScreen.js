@@ -15,7 +15,7 @@ export default function LoginScreen({navigation}) {
       const token = await login(email,password)
       authContext.authenticate(token)
     } catch (error) {
-      Alert.Alert('Kayıt Olunamadı!','lütfen bilgilerinizi kontrol ediniz')
+      Alert.Alert('Giriş yapılamadı!..')
     }
     setIsAuthenticating(false)
   }

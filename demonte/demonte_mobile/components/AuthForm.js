@@ -35,7 +35,7 @@ export default function AuthForm({isLogin,onsubmit,credentialsInvalid}) {
   return (
     <View>
         <Input 
-          label="E-Posta Adresi" 
+          label="E-Posta" 
           keyboardType="email-address"
           onUpdateValue={updateInput.bind(this,'email')}
           value={enteredEmail}

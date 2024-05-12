@@ -42,7 +42,7 @@ export default function AuthContent({isLogin,onAuthenticate}) {
     return (
         <View style={styles.mainContainer}>
             <Image
-                source={require('../assets/WhatsApp Image 2024-03-18 at 18.58.33 (1).jpeg')}
+                source={require('../assets/DSC07784_tg.jpg')}
                 style={styles.contentImage}
             />
             <View style={styles.backButton}>

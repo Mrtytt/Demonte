@@ -30,7 +30,7 @@ export default function MainScreen({navigation}) {
     <View style={styles.mainContainer}>
       <View style={styles.contentContainer}>
         <Image
-          source={require('../assets/Ekran görüntüsü 2024-03-02 174528.png')}
+          source={require('../assets/DSC03758-Enhanced-SR_tg.jpg')}
           style={styles.contentImage}
         />
         <View style={styles.titleContainer}>

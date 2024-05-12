@@ -22,9 +22,10 @@ const styles = StyleSheet.create({
         marginVertical:5,
     },
     label:{
-        color:'black',
+        color:'#E7AF00',
         marginBottom:5,
         fontSize:18,
+        fontWeight:"600",
     },
     labelInvalid:{
       color:'red'
