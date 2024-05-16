@@ -42,7 +42,7 @@ export default function ModelsScreen({navigation}) {
                 </TouchableOpacity>
               )}}
             />
-        </View>
+      </View>
     </View>
     </ScrollView>
     

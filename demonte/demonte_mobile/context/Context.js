@@ -11,6 +11,8 @@ const Reducer = (state,action) =>{
             return action.payload
         case 'get_models':
             return action.payload
+        case 'get_appointments':
+            return action.payload
         default:
             return state
     }
@@ -33,4 +35,18 @@ const getModels = (dispatch)=>{
         dispatch({type:'get_models',payload:response.data})
     }
 }
-export const {Context,Provider} = CreateDataContext(Reducer,{getOffers,getOtherServices,getModels},[])
+const getAppointments = (dispatch)=>{
+    return async() =>{
+        const response = await jsonServer.get('/appointments')
+        dispatch({type:'get_appointments',payload:response.data})
+    }
+}
+const addAppointment = (dispatch) =>{
+    return async (date,note,callback) =>{
+        await jsonServer.post('/appointments',{date,note})
+        if(callback){
+            callback()
+        }
+    }
+}
+export const {Context,Provider} = CreateDataContext(Reducer,{getOffers,getOtherServices,getModels,getAppointments,addAppointment},[])

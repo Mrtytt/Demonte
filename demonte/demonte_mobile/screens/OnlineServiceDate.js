@@ -1,14 +1,18 @@
-import { StyleSheet, View, Text, Button, Platform,Pressable, TextInput, TouchableOpacity} from 'react-native'
-import React,{useState,useEffect} from 'react'
+import { StyleSheet, View, Text, Platform,Pressable, TextInput, TouchableOpacity} from 'react-native'
+import React,{useState,useContext} from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Input from '../components/Input'
-import { getLocales } from 'expo-localization';
+import { Context } from '../context/Context'
 
-export default function OnlineServiceDate({navigation}) {
-  const [date,setDate] = useState(new Date());
-  const deviceLanguage = getLocales()[0].languageCode;
+
+export default function OnlineServiceDate({navigation,initialValues}) {
+  const [date,setDate] = useState(initialValues ? initialValues.date:new Date());
+  const [note,setNote] = useState(initialValues ? initialValues.note:'');
+
   const [showPicker,setShowPicker] = useState(false);
+
+  const {addAppointment} = useContext(Context)
+
   const toggleDatePicker = () => {
     setDate(new Date())
     setShowPicker(!showPicker)
@@ -32,7 +36,8 @@ export default function OnlineServiceDate({navigation}) {
     month = month < 10 ? `0${month}` : month
     day = day < 10 ? `0${day}` : day
 
-    return `${day}/${month}/${year}`
+    let returnDate = `${day}.${month}.${year}`
+    return returnDate
   }
   const confirmDate =()=>{
     setDate(formatDate(date))
@@ -53,10 +58,12 @@ export default function OnlineServiceDate({navigation}) {
         <Text style={styles.titleContainerText}>Servis Randevusu</Text>
       </View>
       <View style={styles.dateTimePickerContainer}>
-        <Input
-          label={"Not"}
-        >
-        </Input>
+        <Text style={styles.label}>Not</Text>
+        <TextInput 
+          style={styles.input}
+          value={note}
+          onChangeText={(text) => setNote(text)}
+        />
       </View>
       <View style={styles.dateTimePickerContainer}>
         <Text style={styles.label}>Tarih</Text>
@@ -109,7 +116,7 @@ export default function OnlineServiceDate({navigation}) {
           >
             <TextInput
               style={styles.input}
-              placeholder='21/05/2024'
+              placeholder='21.05.2024'
               value={date}
               onChangeText={setDate}
               placeholderTextColor="#11182744"
@@ -120,6 +127,14 @@ export default function OnlineServiceDate({navigation}) {
           </View>
         )}
       </View>
+        <TouchableOpacity 
+          style={styles.buttonMain} 
+          onPress={(date,note) =>{addAppointment(formatDate(date),note),()=>navigation.pop()}}
+        >
+          <View style={styles.buttonView}>        
+              <Text style={styles.buttonText}>{'Kaydet'}</Text>
+          </View>
+        </TouchableOpacity>
     </View>
   )
 }
@@ -189,23 +204,26 @@ const styles = StyleSheet.create({
       paddingHorizontal:10,
       borderRadius:20,
       fontSize:16,
+      marginBottom:10,
     },
     dateTimePickerContainer:{
       marginHorizontal:10,
     },
-    cleanButtonContainer:{
-      marginTop:5,
-      borderRadius:50,
-      padding:5,
-      justifyContent:"center",
-      alignItems:"center",
-      flexDirection:"column",
-      backgroundColor:"#FF2800",
-      width:"25%",
-      marginLeft:"35%"
+    buttonMain:{
+      padding:10,
+      marginBottom:50,
     },
-    cleanButtonText:{
-      fontSize:16,
-      color:"white",
-    }
+    buttonView:{
+      backgroundColor:'#E7AF00',
+      padding:5,
+      alignItems:'center',
+      justifyContent:'center',
+      borderRadius:20,
+      width:'50%',
+      marginLeft:90,
+    },
+    buttonText:{
+      color:'white',
+      fontSize:20,
+    },
 })

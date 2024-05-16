@@ -29,13 +29,13 @@ export default function OffersScreen({navigation}) {
             keyExtractor={(offer) => offer.id}
             renderItem={({item}) => {
               return (
-                <Pressable onPress={()=>navigation.navigate('Show',{id:item.id})}>
+                <Pressable onPress={()=>navigation.navigate('ShowScreen',{id:item.id})}>
                   <View style={styles.offerContiner}>
                     <Image
                       style={styles.offerImage}
                       source={{uri:item.imageUrl}}
                     />
-                    <Text style={styles.offerText}>{item.title}</Text>
+                    <Text style={styles.offerText}>{item.Name}</Text>
                   </View>
                 </Pressable>
               )}}
