@@ -2,6 +2,7 @@ import { StyleSheet, Text, View,Pressable,FlatList,TouchableOpacity} from 'react
 import React,{useContext,useEffect} from 'react'
 import { Context } from '../context/Context'
 import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function ServiceHistoryScreen({navigation}) {
   const {state,getAppointments} = useContext(Context)
@@ -31,8 +32,19 @@ export default function ServiceHistoryScreen({navigation}) {
               return (
                 <TouchableOpacity onPress={()=>navigation.navigate('ShowAppointment',{id:item.id})}>
                   <View style={styles.modelContiner}>
-                    <Text style={styles.modelDate}>{item.date}</Text>
-                    <Text style={styles.modelText}>{item.note}</Text>
+                    <View style={styles.modelContinerLeftSide}>
+                      <Text style={styles.modelDate}>{item.date}</Text>
+                      <Text style={styles.modelText}>{item.note}</Text>
+                    </View>
+                    <Pressable
+                        style={({ pressed }) => pressed && styles.pressed}
+                        onPress={() => {
+                        navigation.navigate('EditServiceScreen',{id:item.id});
+                      }}>
+                      <View style={styles.modelContinerRightSide}>
+                        <FontAwesome name="pencil" size={26} color="white" />
+                      </View>
+                    </Pressable>
                   </View>
                 </TouchableOpacity>
               )}}
@@ -77,6 +89,9 @@ const styles = StyleSheet.create({
       width:"100%",
       padding:7,
       marginRight:5,
+      flexDirection:'row',
+      alignItems:"center",
+      justifyContent:"space-between",
     },
     modelText:{
       marginRight:15,

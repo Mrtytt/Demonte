@@ -3,8 +3,9 @@ import React,{useContext,useEffect}from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/Context'
 
-export default function ModelScreen({navigation,route}) {
+export default function ShowAppointment({navigation,route}) {
   const {state} = useContext(Context)
+  console.log(route.params.id)
   const model = state.find((model) => model.id === route.params.id)
   return (
     <View style={styles.mainContainer}>

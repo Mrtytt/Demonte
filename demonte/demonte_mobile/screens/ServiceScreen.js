@@ -58,30 +58,6 @@ export default function ServiceScreen({navigation}) {
             </View>
           </View>
         </Pressable>
-        <View style={styles.buttonContainer}>
-          <View style={styles.buttonLeftSideContainer}>
-            <FontAwesome name="pencil" size={26} color="#E7AF00" />
-            <Text style={styles.buttonLeftSideContainerText}>Randevu Düzenle</Text>
-          </View>
-          <Pressable
-            style={({pressed}) =>pressed && styles.pressed}
-            onPress={() => {
-              navigation.navigate('EditServiceScreen');
-            }}
-          >
-          <View style={styles.buttonRightSideContainer}>
-            <AntDesign name="right" size={24} color="#6A6A6A" />
-          </View>
-          </Pressable>
-          
-        </View>
-        <Pressable
-          style={({pressed}) =>pressed && styles.pressed}
-          onPress={() => {
-            navigation.navigate('ServiceHistoryScreen');
-          }}
-        >
-        </Pressable>
         <Pressable
           style={({pressed}) =>pressed && styles.pressed}
           onPress={() => {

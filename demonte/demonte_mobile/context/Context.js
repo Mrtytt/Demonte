@@ -13,6 +13,10 @@ const Reducer = (state,action) =>{
             return action.payload
         case 'get_appointments':
             return action.payload
+        case 'edit_appointment':
+            return state.map((model) => {
+                return model.id === action.payload.id ? action.payload : model
+            }) 
         default:
             return state
     }
@@ -49,4 +53,13 @@ const addAppointment = (dispatch) =>{
         }
     }
 }
-export const {Context,Provider} = CreateDataContext(Reducer,{getOffers,getOtherServices,getModels,getAppointments,addAppointment},[])
+const editAppointment = (dispatch) =>{
+    return async (id,date,note,callback) =>{
+        await jsonServer.put(`/appointments/${id}`,{date,note})
+        dispatch({type:'edit_appointment',payload:{id,date,note}})
+        if(callback){
+            callback()
+        }
+    }
+}
+export const {Context,Provider} = CreateDataContext(Reducer,{getOffers,getOtherServices,getModels,getAppointments,addAppointment,editAppointment},[])
